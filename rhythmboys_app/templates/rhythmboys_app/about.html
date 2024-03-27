@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Rhythm Boys</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add your custom CSS here */
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            font-size: 1.1rem;
+            color: #333333;
+        }
+        .list-group-item {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">About Rhythm Boys</h1>
+        
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Band Members</h2>
+                <p class="card-text">Meet the talented musicians who make up Rhythm Boys:</p>
+                <ul class="list-group">
+                    {% for member in band_members %}
+                        <li class="list-group-item">
+                            <strong>{{ member.name }}</strong> - {{ member.role }}
+                            <br>
+                            Years Active: {{ member.years_active }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Our Story</h2>
+                <p class="card-text">Rhythm Boys is an American boy band who are best known for the singles "My Girl" and "Mrs. Right", produced by Walter Millsap. The band was put together in Los Angeles in 2008, by Keisha Gamble, Vincent Herbert, and Walter Millsap. The band trained in dance and singing for two years before releasing a recording in Japan Music. The members were all in their early teens when the band was created.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Studio Albums</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Album Details</th>
+                            <th>Peak Chart Positions</th>
+                            <th>Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1 Girl</td>
+                            <td>Released: September 20, 2011<br>Label: Interscope, Streamline<br>Format: CD, digital download</td>
+                            <td>7 (US)<br>2 (US R&B)</td>
+                            <td>US: 290,000</td>
+                        </tr>
+                        <tr>
+                            <td>All Around the World</td>
+                            <td>Released: March 12, 2013<br>Label: Interscope, Streamline<br>Format: CD, digital download</td>
+                            <td>6 (US)<br>1 (US R&B)</td>
+                            <td>US: 115,000</td>
+                        </tr>
+                        <tr>
+                            <td>#OfficialMBMusic</td>
+                            <td>Released: June 24, 2016<br>Label: Conjunction, Alternative Distribution Alliance<br>Format: CD, digital download</td>
+                            <td>79 (US)<br>4 (US R&B)</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Singles</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Year</th>
+                            <th>Peak Chart Positions</th>
+                            <th>Album</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"My Girl"</td>
+                            <td>2010</td>
+                            <td>—</td>
+                            <td>#1 Girl</td>
+                        </tr>
+                        <tr>
+                            <td>"Mrs. Right" (featuring Diggy Simmons)</td>
+                            <td>2011</td>
+                            <td>72</td>
+                            <td>#1 Girl</td>
+                        </tr>
+                        <!-- More rows for singles -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Awards and Nominations</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Awards</th>
+                            <th>Category</th>
+                            <th>Outcome</th>
+                            <th>Ref.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2011</td>
+                            <td>BET Awards</td>
+                            <td>BET FANdemonium Award</td>
+                            <td>Nominated</td>
+                            <td><a href="#">[20]</a></td>
+                        </tr>
+                        <!-- More rows for awards -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p><a href="{% url 'home' %}">Return to Main Page</a></p>
+</body>
+</html>

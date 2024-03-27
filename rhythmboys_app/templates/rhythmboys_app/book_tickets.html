@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logout Button -->
+        <div class="row justify-content-end mb-3">
+            <div class="col-auto">
+                <form id="logout-form" action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+            </div>
+        </div>
+
+        <h1 class="mt-5 mb-4 text-center">Book Tickets</h1>
+        
+        <!-- Tour Dates -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="mb-3">Upcoming Tour Dates</h2>
+                <ul class="list-group">
+                    <!-- Random tour dates -->
+                    <li class="list-group-item">March 25, 2024 - New York, NY</li>
+                    <li class="list-group-item">April 10, 2024 - Los Angeles, CA</li>
+                    <li class="list-group-item">April 20, 2024 - Chicago, IL</li>
+                    <li class="list-group-item">May 5, 2024 - Miami, FL</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tickets -->
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="mb-3">Purchase Tickets</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="tour-date">Select Tour Date</label>
+                        <select class="form-control" id="tour-date">
+                            <!-- Dropdown options for tour dates -->
+                            <option value="March 25, 2024 - New York, NY">March 25, 2024 - New York, NY</option>
+                            <option value="April 10, 2024 - Los Angeles, CA">April 10, 2024 - Los Angeles, CA</option>
+                            <option value="April 20, 2024 - Chicago, IL">April 20, 2024 - Chicago, IL</option>
+                            <option value="May 5, 2024 - Miami, FL">May 5, 2024 - Miami, FL</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" value="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Purchase Tickets</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional, for dropdown functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript function to submit the logout form -->
+    <script>
+        function logout() {
+            document.getElementById("logout-form").submit();
+        }
+    </script>
+</body>
+</html>

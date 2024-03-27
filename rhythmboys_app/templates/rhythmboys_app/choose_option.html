@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Option</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        
+        body {
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .option-link {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .option-link:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+        }
+        .return-link {
+            margin-top: 20px;
+        }
+        .logout-btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>Please choose an option:</p>
+        <a href="{% url 'book_tickets' %}" class="option-link">Book Tickets</a>
+        <a href="{% url 'purchase_merchandise' %}" class="option-link">Purchase Merchandise</a>
+        
+        <!-- Logout Button -->
+        <form action="{% url 'logout' %}" method="post" class="logout-btn">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+        
+        <!-- Return to Home Page -->
+        <p class="return-link"><a href="{% url 'home' %}" class="btn btn-secondary">Return to Home Page</a></p>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

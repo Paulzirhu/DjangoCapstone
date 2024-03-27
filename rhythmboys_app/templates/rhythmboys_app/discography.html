@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Boys Discography</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add your custom CSS here */
+        body {
+            padding-top: 20px;
+            position: relative;
+        }
+        .album-card {
+            margin-bottom: 20px;
+        }
+        .album-details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .album-details h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .album-details p {
+            font-size: 16px;
+        }
+        /* Custom Styles for Top-right Buttons */
+        .top-right-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .top-images img {
+            width: 150px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Rhythm Boys Discography</h1>
+
+        <!-- Top Images Section -->
+        <div class="top-images mb-4">
+            <img src="{% static 'rhythmboys_app/images/disk1.jpg' %}" alt="Rhythm Boys Band" class="#1 Girl">
+            <img src="{% static 'rhythmboys_app/images/disk2.jpg' %}" alt="Rhythm Boys Band" class="#OfficialMBMusic">
+            <img src="{% static 'rhythmboys_app/images/disk3.jpeg' %}" alt="Rhythm Boys Band" class="All around the World">
+        </div>
+
+        <div class="top-right-buttons">
+            <a href="{% url 'login' %}" class="btn btn-primary me-2">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+        </div>
+
+        <!-- Return to Home Button -->
+        <a href="{% url 'home' %}" class="btn btn-primary mb-3">Return to Home</a>
+
+        <div class="row">
+            {% for album in albums %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card album-card">
+                        <img src="{{ album.cover_image.url }}" class="card-img-top" alt="{{ album.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ album.title }}</h5>
+                            <p class="card-text">{{ album.description }}</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Album Details -->
+        <div class="album-details">
+            <h2>Studio albums</h2>
+            <p>List of albums, with selected chart positions</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Album details</th>
+                        <th>Peak chart positions</th>
+                        <th>Sales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1 Girl</td>
+                        <td>Released: September 20, 2011<br>Label: Interscope, Streamline<br>Format: CD, digital download</td>
+                        <td>7 (US)<br>2 (US R&B)</td>
+                        <td>US: 290,000</td>
+                    </tr>
+                    <tr>
+                        <td>All Around the World</td>
+                        <td>Released: March 12, 2013<br>Label: Interscope, Streamline<br>Format: CD, digital download</td>
+                        <td>6 (US)<br>1 (US R&B)</td>
+                        <td>US: 115,000</td>
+                    </tr>
+                    <tr>
+                        <td>#OfficialMBMusic</td>
+                        <td>Released: June 24, 2016<br>Label: Conjunction, Alternative Distribution Alliance<br>Format: CD, digital download</td>
+                        <td>79 (US)<br>4 (US R&B)</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript (Optional, only if you use Bootstrap features that require JS) -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
+</body>
+</html>

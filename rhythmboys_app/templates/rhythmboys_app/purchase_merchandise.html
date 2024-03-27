@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Merchandise</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-between align-items-center mb-4">
+        <div class="col">
+            <h2 class="mb-0">Available Merchandise</h2>
+        </div>
+        <div class="col-auto">
+            <form id="logout-form" action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <ul class="list-group">
+        {% for item in available_merchandise %}
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>{{ item.name }}</strong> - {{ item.description }} - ${{ item.price }}
+                    </div>
+                 
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No merchandise available.</li>
+        {% endfor %}
+    </ul>
+
+    
+
+</div>
+
+<!-- Bootstrap JS (Optional, for dropdown functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript function to submit the logout form
+    function logout() {
+        document.getElementById("logout-form").submit();
+    }
+</script>
+
+</body>
+</html>
